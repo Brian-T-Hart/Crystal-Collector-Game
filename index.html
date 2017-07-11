@@ -19,136 +19,45 @@
 		<div class="row">
 			<h1 id="title">Crystal Collector</h1>
 		</div>
-		<div id="instructions" class="row">
-			<p>You will be given a random number at the start of the game.</p>
-			<p>There are four crytstals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
-			<p>You win the game by matching your total score to the random number. You lose the game if your total score goes above the random number.</p>
-			<p>The value of each crystal is hidden from you until you click on it.</p>
-			<p>Each time a new game starts, the value of each crystal is changed.</p>
-		</div>
-		<div id="targetNumberDiv" class="row">
-			<div id="targetNumCol" class="col">
-				<h1 id="targetNumber"></h1>
+		<div class="row">
+			<div id="column1" class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1">
+				<div id="instructions" class="row">
+					<p>You will be given a random number at the start of the game.</p>
+					<p>There are four crytstals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+					<p>You win the game by matching your total score to the random number. You lose the game if your total score goes above the random number.</p>
+					<p>The value of each crystal is hidden from you until you click on it.</p>
+					<p>Each time a new game starts, the value of each crystal is changed.</p>
+				</div>
+				<div id="targetNumberDiv" class="row">
+					<div id="targetNumCol" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1">
+						<h2 class="text-center">Target Number</h2>
+						<h1 id="targetNumber"></h1>
+					</div>
+					<div id="totalScoreIs" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-xl-offset-2">
+						<h2 class="text-center">Your total</h2>
+						<h1 id="totalScore"></h1>
+					</div>
+				</div>
+				<div id="imageRow" class="row">
+					<div id="column1" class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xl-offset-1">
+						<img id="pinkGem" class="image" src="assets/images/pink-gem.png">
+						<img id="blueGem" class="image" src="assets/images/blue-gem.png">
+						<img id="purpleGem" class="image" src="assets/images/purple-gem.png">
+						<img id="greenGem" class="image" src="assets/images/green-gem.png">
+					</div>
+				</div>
+				<div id="messageDiv" class="row">
+					<h2 id="message"></h2>
+				</div>
+				<div id="winLossColumn" class="row">
+					<h2 id="winsSpace">Wins: <span id="wins"></span></h2>
+					<h2 id="lossesSpace">Losses: <span id="losses"></span></h2>
+				</div>
 			</div>
-			<div id="winLossColumn" class="col">
-				<h2>Wins: <span id="wins"></span></h2>
-				<h2>Losses: <span id="losses"></span></h2>
-			</div>
-		</div>
-		<div id="imageRow" class="row">
-			<img id="pinkGem" class="image" src="assets/images/pink-gem.png">
-			<img id="blueGem" class="image" src="assets/images/blue-gem.png">
-			<img id="purpleGem" class="image" src="assets/images/purple-gem.png">
-			<img id="greenGem" class="image" src="assets/images/green-gem.png">
-		</div>
-		<div id="totalScoreIs" class="row">
-			<h2>Your total score is: <span id="totalScore"></span></h2>
-		</div>
-		<div id="messageDiv" class="row">
-			<h2 id="message"></h2>
 		</div>
 	</div>
 
-<script type="text/javascript">
+<script src="assets/javascript/game.js"></script>
 
-var targetNumber = 0;
-var blueGemNumber = 0;
-var greenGemNumber = 0;
-var pinkGemNumber = 0;
-var purpleGemNumber = 0;
-var totalScore = 0;
-var wins = 0;
-var losses = 0;
-
-
-function random(randomizer, adder) {
-	return Math.floor((Math.random() * randomizer) + adder);
-}
-
-function showmessage(message) {
-	$('#message').html(message);
-}
-
-function displayTotalScore() {
-	$("#totalScore").html(totalScore);
-}
-
-function displayTargetNumber() {
-	$('#targetNumber').html(targetNumber);
-}
-
-function addWin() {
-	wins = wins + 1;
-	$("#wins").html(wins);
-}
-
-function addLoss() {
-	losses = losses + 1;
-	$("#losses").html(losses);
-}
-
-function initGame() {
-	targetNumber = random(50,40);
-	blueGemNumber = random(20,5);
-	greenGemNumber = random(15,3);
-	pinkGemNumber = random(10,2);
-	purpleGemNumber = random(5,1);
-	totalScore = 0;
-	displayTargetNumber();
-	displayTotalScore();
-	showmessage('Click on a gem to start.')
-}
-
-function main() {
-$("#blueGem").click(function() {
-	totalScore = totalScore + blueGemNumber;
-	displayTotalScore();
-	checkScore();
-	});
-$("#greenGem").click(function() {
-	totalScore = totalScore + greenGemNumber;
-	displayTotalScore();
-	checkScore();
-	});
-$("#pinkGem").click(function() {
-	totalScore = totalScore + pinkGemNumber;
-	displayTotalScore();
-	checkScore();
-	});
-$("#purpleGem").click(function() {
-	totalScore = totalScore + purpleGemNumber;
-	displayTotalScore();
-	checkScore();
-	});
-}
-
-function checkScore() {
-	displayTotalScore();
-	var x = totalScore;
-	var y = targetNumber;
-
-	if (x < y) {
-		showmessage('Keep going!')
-	}
-
-	if (x === y) {
-		showmessage('Great Job! You won.')
-		addWin();
-		setTimeout(initGame, 3000);
-		// initGame();
-	}
-	
-	if (totalScore > targetNumber) {
-		showmessage('Bummer! You went over!')
-		addLoss();
-		setTimeout(initGame, 3000);
-		// initGame();
-	}
-}			
-
-$(document).ready(initGame());
-main();
-
-</script>
 </body>
 </html>

@@ -1,94 +1,119 @@
 body {
-	    background: url('../images/brickBackground.jpeg');
+		/*background: url('../images/brickBackground.jpeg');*/
 	    color: #000;
+	    background-color: #fff;
 }
 
 img {
-width: 12%;
+width: 23%;
 }
 
 h2 {
-	padding-left: 10px;
 	line-height: 25px;
 }
 
-h1,h2,p {
-	padding-left: 20px;
-}
-
 #blueGem:hover {
-	width: 15%;
+	width: 27%;
+	z-index: 99;
 }
 
 #greenGem:hover {
-	width: 15%;
+	width: 27%;
+	z-index: 99;
 }
 
 #pinkGem:hover {
-	width: 15%;
+	width: 27%;
+	z-index: 99;
 }
 
 #purpleGem:hover {
-	width: 15%;
+	width: 27%;
+	z-index: 99;
 }
 
 #title {
+	width: 100%;
 	color: #fff;
-	margin: 0px 20px;
-	width: 50%;
-	text-align: left;
-	font-size: 52px;
+	margin: 0px 0px 30px 0px;
+	text-align: center;
+	font-size: 64px;
+	line-height: 240px;
+	background-color: #4286f4;
+	/*border-bottom: 10px solid black;*/
+	/*border-top: 10px solid black;*/
 }
 
 #instructions {
+	width: 85%;
 	background-color: #ddd;
-	width: 50%;
-	margin: 20px;
-	font-size: 16px;
+	margin: auto;
+	margin-top: 50px;
+	margin-bottom: 60px;
+	font-size: 18px;
+	padding: 30px;
 }
 
 #targetNumberDiv {
-	margin: 0px 20px;
+	margin: auto;
+	margin-top: 20px;
+	text-align: center;
 }
 
 #targetNumCol {
-	width: 20%;
-	height: 100px;
-	background-color: white;
-	float: left;
-}
-
-#winLossColumn {
-	margin-left: 20px;
-	width: 20%;
-	height: 100px;
-	background-color: grey;
-	float: left;
-}
-
-#imageRow {
-	margin: 0px 20px;
-	line-height: 200px;
+	height: 140px;
+	background-color: #fff;
+	font-size: 60px;
 }
 
 #totalScoreIs {
-	background-color: green;
-	margin: 0px 20px;
-	width: 50%;
+	height: 140px;
+	text-align: left;
+	background-color: #fff;
+}
+
+#imageRow {
+	margin: auto;
+	margin-top: 10px;
+	
+	line-height: 220px;
+}
+
+#winLossColumn {
+	margin: 30px 20px;
 	height: 50px;
 }
 
 #totalScore {
-	color: #fff;
+	color: #000;
+	text-align: center;
 }
 
 #messageDiv {
-	background-color: #0066ff;
-	margin: 20px;
-	width: 50%;
+	margin: 20px 20px 40px 20px;
 	height: 50px;
+	text-align: center;
 }
 
 #message {
-	color: #ffff66;
+	color: #e60000;
+	font-size: 48px;
+}
+
+#winsSpace {
+	color: #000;
+	font-size: 36px;
+	width: 25%;
+	float: left;
+	margin-left: 20%;
+	margin-bottom: 100px;
+}
+
+#lossesSpace {
+	color: #000;
+	font-size: 36px;
+	width: 25%;
+	float: left;
+	margin-left: 20%;
+	margin-bottom: 100px;
 }
